@@ -29,6 +29,10 @@ html = f"""
 @app.get("/")
 async def root():
     return HTMLResponse(html)
+    
+@app.get("/atomcamp")
+async def atomcamp():
+    return "Hello this is our experiment endpoint"
 
 @app.get('/ping')
 async def hello():
