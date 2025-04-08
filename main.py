@@ -45,13 +45,13 @@ async def atomcamp():
 async def april():
     return "we just created a new endpoint"
 
-@app.get("/chat")
-async def groq():
+@app.get("/chat/{q}")
+async def groq(q):
     chat_completion = client.chat.completions.create(
     messages=[
         {
             "role": "user",
-            "content": "Write a joke",
+            "content": q,
         }
     ],
     model="llama3-8b-8192",)
