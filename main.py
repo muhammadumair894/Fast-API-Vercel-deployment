@@ -34,6 +34,10 @@ async def root():
 async def atomcamp():
     return "Hello this is our experiment endpoint"
 
+@app.get("/8april")
+async def april():
+    return "we just created a new endpoint"
+
 @app.get('/ping')
 async def hello():
     return {'res': 'pong', 'version': __version__, "time": time()}
