@@ -5,6 +5,8 @@ from fastapi.responses import HTMLResponse
 import os
 from groq import Groq
 
+#key = os.getenv("key")
+
 client = Groq(api_key="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",)
 
 
