@@ -2,6 +2,11 @@ from time import time
 from fastapi import FastAPI, __version__
 from fastapi.staticfiles import StaticFiles
 from fastapi.responses import HTMLResponse
+import os
+from groq import Groq
+
+client = Groq(api_key="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",)
+
 
 app = FastAPI()
 app.mount("/static", StaticFiles(directory="static"), name="static")
@@ -37,6 +42,21 @@ async def atomcamp():
 @app.get("/8april")
 async def april():
     return "we just created a new endpoint"
+
+@app.get("/chat")
+async def groq():
+    chat_completion = client.chat.completions.create(
+    messages=[
+        {
+            "role": "user",
+            "content": "Write a joke",
+        }
+    ],
+    model="llama3-8b-8192",)
+
+#print(chat_completion.choices[0].message.content)
+    
+    return str(chat_completion.choices[0].message.content)
 
 @app.get('/ping')
 async def hello():
