@@ -1,2 +1,9 @@
 ﻿fastapi==0.95.0
+langchain_community
+faiss-cpu
+nest-asyncio
+pyngrok
+uvicorn
 groq
+langchain-google-genai
+langchain[groq]
