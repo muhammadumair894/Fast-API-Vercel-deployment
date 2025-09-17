@@ -41,6 +41,10 @@ async def root():
 async def atomcamp():
     return "Hello this is our experiment endpoint .............."
 
+@app.get("/change")
+async def atomcamp():
+    return "Hello this is change .............."
+
 @app.get("/8april")
 async def april():
     return "we just created a new endpoint"
